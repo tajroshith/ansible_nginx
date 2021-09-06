@@ -51,7 +51,7 @@ Now let's execute the ansible-playbook via:
 ansible-playbook -i inventoryfile nginx.yml
 ```
 ## Screenshot
-
+![](Screenshot.jpg)
 ## Securing files
 
 We have used "nginx.vars" file to pass the variables as a plain text, to overcome this we can encrypt the files with a password. Ansible-vault encrypts variables and files so you can protect sensitive content such as passwords or keys rather than leaving it visible as plaintext in playbooks.
