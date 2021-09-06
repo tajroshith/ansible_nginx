@@ -12,7 +12,7 @@ In this project we’ll focus on getting a simple website set up in NGINX throug
 
 ## Ansible Modules Used
 
-- [Inventory](https://docs.ansible.com/ansible/2.3/intro_inventory.html/)
+- [Inventory](https://docs.ansible.com/ansible/2.3/intro_inventory.html)
 - [File](https://docs.ansible.com/ansible/2.3/list_of_files_modules.html)
 - [Template](https://docs.ansible.com/ansible/2.5/modules/template_module.html)
 
