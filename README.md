@@ -31,7 +31,6 @@ Also here I have used SSH private key based login. So I have copied the ssh priv
 ```sh
 yum install git -y
 amazon-linux-extras ansible2 -y
-git clone https://github.com/tajroshith/ansible_nginx.git
 ```
 
 Now let's check the connection status to the client server via:
