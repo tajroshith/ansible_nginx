@@ -1,0 +1,61 @@
+- name: "Installing & configuring test site in NGINX"
+  become: true
+  hosts: ubuntu
+  vars_files:
+    - nginx.vars
+
+
+  tasks:
+    - name: "Update cache"
+      apt:
+        update_cache: true
+
+    - name: "Install nginx"
+      apt:
+        name: nginx
+        state: latest
+
+    - name: "Create nginx vhost"
+      template:
+        src: vhost.conf.tmpl
+        dest: "{{ nginx_sites }}/{{ nginx_domain }}.conf"
+        owner: "{{ nginx_user }}"
+        group: "{{ nginx_group }}"
+      register: vhost_content
+
+    - name: "Create symlink nginx vhost"
+      file:
+        src: "{{ nginx_sites }}/{{ nginx_domain }}.conf"
+        dest: /etc/nginx/sites-enabled/{{ nginx_domain }}.conf
+        state: link
+
+    - name: "Delete default nginx vhost"
+      file:
+        path: "{{ nginx_sites }}/default"
+        state: absent
+
+    - name: "Delete default nginx vhost symlink"
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
+    - name: "Create custom document root"
+      file:
+        path: "{{ doc_root }}/{{ nginx_domain }}"
+        state: directory
+        owner: "{{ nginx_user }}"
+        group: "{{ nginx_group }}"
+      register: vhost_conf
+
+    - name: "Create index.html files"
+      template:
+        src: index.html
+        dest: "{{ doc_root }}/{{ nginx_domain }}"
+      register: webfile_content
+
+    - name: "Restart / enable nginx"
+      when: vhost_conf.changed  == true or webfile_content.changed == true or vhost_content.changed == true
+      service:
+        name: nginx
+        state: restarted
+        enabled: true
