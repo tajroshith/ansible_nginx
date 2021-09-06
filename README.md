@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-In this project we’ll focus on getting a simple website set up in NGINX through ansible playbook on an Ubuntu 20.04 LTS server.
+In this project we’ll focus on getting a simple test website set up in NGINX through ansible playbook on an Ubuntu 20.04 LTS server.
 
 ## Pre-requisites
 
