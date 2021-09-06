@@ -1,6 +1,6 @@
 - name: "Installing & configuring test site in NGINX"
   become: true
-  hosts: ubuntu
+  hosts: all
   vars_files:
     - nginx.vars
 
