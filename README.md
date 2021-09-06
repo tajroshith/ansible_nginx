@@ -23,7 +23,7 @@ In this project we’ll focus on getting a simple website set up in NGINX throug
 - Nginx (webserver)
 - Ansible2
 
-Instructions
+## Instructions
 
 First let's create a directory in our master server. Now clone my Github repository [ansible_nginx](https://github.com/tajroshith/ansible_nginx) to your master server which is pre-installed with Ansible2. After cloning the repository, edit your Inventory file accordingly and modify the "nginx.vars" with the desired values. 
 Also here I have used SSH private key based login. So I have copied the ssh private key file as "EXAMPLE_KEY.pem" in the same directory with read permission granted to the User/Owner.
