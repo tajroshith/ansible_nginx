@@ -25,8 +25,7 @@ In this project we’ll focus on getting a simple test website set up in NGINX t
 
 ## Instructions
 
-First let's create a directory in our master server. Now clone my Github repository [ansible_nginx](https://github.com/tajroshith/ansible_nginx) to your master server which is pre-installed with Ansible2. After cloning the repository, edit your Inventory file accordingly and modify the "nginx.vars" with the desired values. 
-Also here I have used SSH private key based login. So I have copied the ssh private key file as "EXAMPLE_KEY.pem" in the same directory with read permission granted to the User/Owner.
+First let's create a directory in our master server. Now clone my Github repository [ansible_nginx](https://github.com/tajroshith/ansible_nginx) to your master server which is pre-installed with Ansible2. After cloning the repository, edit your Inventory file accordingly and modify the "nginx.vars" with the desired values.
 
 ```sh
 yum install git -y
@@ -56,7 +55,7 @@ ansible-playbook -i inventoryfile nginx.yml
 ![](Screenshot.jpg)
 ## Securing files
 
-We have used "nginx.vars" file to pass the variables as a plain text, to overcome this we can encrypt the files with a password. Ansible-vault encrypts variables and files so you can protect sensitive content such as passwords or keys rather than leaving it visible as plaintext in playbooks.
+Here i encrypt the contents of "nginx.vars" via ansible-vault inorder to prevent the variables to be passed as plain text. Ansible-vault encrypts variables and files so you can protect sensitive content such as passwords or keys.
 
 To encrypt a file, we use the ansible-vault command
 ```sh
